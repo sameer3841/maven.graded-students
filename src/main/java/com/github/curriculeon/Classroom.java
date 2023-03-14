@@ -9,9 +9,7 @@ public class Classroom {
     }
 
     public Classroom() {
-
     }
-
 
     public Student[] getStudents() {
         return null;
@@ -22,7 +20,7 @@ public class Classroom {
         return null;
     }
 
-    public Boolean addStudent(Student... students) {
+    public Boolean addStudent(Student students) {
         return null;
     }
 

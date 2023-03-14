@@ -10,7 +10,6 @@ public class GetStudentsByExamScoreTest {
     private void test(Student[] students, Student[] expected) {
         // when
         Classroom classroom = new Classroom(students);
-        classroom.addStudent(students);
         Student[] actual = classroom.getStudentsByScore();
 
         // then

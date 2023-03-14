@@ -5,11 +5,8 @@ import com.github.curriculeon.Student;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class GetGradeBookTest {
 
@@ -17,16 +14,15 @@ public class GetGradeBookTest {
     @Test
     public void test(Map<Student, Double> expected) {
         // Create a new classroom with some students
-        Student[] students = expected.keySet().toArray(new Student[0]);
-        Classroom classroom = new Classroom(students);
+        Classroom classroom = new Classroom(expected.keySet().toArray(new Student[0]));
 
         // when
-        // Get the grade book and make sure it's not null
         Map<Student, Double> gradeBook = classroom.getGradeBook();
 
         // then
+        Assert.assertNotNull(gradeBook);
         // Check that the grade book contains the expected students and grades
-        for(Map.Entry<Student, Double> expectedEntry : expected.entrySet()) {
+        for (Map.Entry<Student, Double> expectedEntry : expected.entrySet()) {
             Student expectedKey = expectedEntry.getKey();
             Double expectedValue = expectedEntry.getValue();
             Double actualValue = gradeBook.get(expectedKey);
@@ -62,6 +58,7 @@ public class GetGradeBookTest {
         map.put(charlie, 93.33);
         test(map);
     }
+
     // given
     @Test
     public void test2() {
