@@ -29,10 +29,10 @@ public class GetGradeBookTest {
         // Check that the grade book contains the expected students and grades
         Assert.assertEquals(3, gradeBook.size());
         Assert.assertTrue(gradeBook.containsKey(new Student("Alice", "Smith", null)));
-        Assert.assertEquals(88.33, gradeBook.get(new Student("Alice", "Smith", null)), 0.01);
         Assert.assertTrue(gradeBook.containsKey(new Student("Bob", "Jones", null)));
-        Assert.assertEquals(83.33, gradeBook.get(new Student("Bob", "Jones", null)), 0.01);
         Assert.assertTrue(gradeBook.containsKey(new Student("Charlie", "Brown", null)));
+        Assert.assertEquals(88.33, gradeBook.get(new Student("Alice", "Smith", null)), 0.01);
+        Assert.assertEquals(83.33, gradeBook.get(new Student("Bob", "Jones", null)), 0.01);
         Assert.assertEquals(93.33, gradeBook.get(new Student("Charlie", "Brown", null)), 0.01);
     }
 }
