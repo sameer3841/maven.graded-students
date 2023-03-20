@@ -32,7 +32,7 @@ public class Classroom {
         return null;
     }
 
-    public Map<Student, Double> getGradeBook() {
+    public Map<Student, Character> getGradeBook() {
         return null;
     }
 
