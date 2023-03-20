@@ -10,7 +10,7 @@ public class Student implements Comparable<Student> {
 
     private String firstName;
     private String lastName;
-    private List<Double> testScores;
+    private final List<Double> testScores;
 
     public Student(String firstName, String lastName, Double[] testScores) {
         setFirstName(firstName);
