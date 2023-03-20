@@ -1,43 +1,63 @@
 package com.github.curriculeon;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class Student implements Comparable<Student> {
 
+    private String firstName;
+    private String lastName;
+    private List<Double> testScores;
+
     public Student(String firstName, String lastName, Double[] testScores) {
+        setFirstName(firstName);
+        setLastName(lastName);
+        this.testScores = new ArrayList<>(Arrays.asList(testScores));
     }
 
     public Student() {
-
+        setFirstName(null);
+        setLastName(null);
+        testScores = new ArrayList<>(Collections.emptyList());
     }
 
     public String getFirstName() {
-        return null;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return null;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Double[] getExamScores() {
-        return null;
+        return testScores.toArray(new Double[0]);
     }
 
     public void addExamScore(double examScore) {
+        testScores.add(examScore);
     }
 
 
     public void setExamScore(int examNum, double updateScore) {
+        testScores.set(examNum,updateScore);
     }
 
 
     public Double getAverageExamScore() {
-        return null;
+        double ans = 0;
+        for(double i : testScores) ans += i;
+        return ans / testScores.size();
     }
 
     @Override
@@ -51,7 +71,10 @@ public class Student implements Comparable<Student> {
      */
     @Override
     public int compareTo(Student studentToCompareAgainst) {
-        return Integer.valueOf(null);
+        int ans = this.getAverageExamScore().compareTo(studentToCompareAgainst.getAverageExamScore());
+        if(ans == 0)
+            ans = this.getLastName().compareTo(studentToCompareAgainst.getLastName());
+        return ans;
     }
 }
 
