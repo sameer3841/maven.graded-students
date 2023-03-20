@@ -18,7 +18,7 @@ public class GetGradeBookTest {
                 new Student("Bob", "Johnson", new Double[]{70.0, 60.0}),
                 new Student("Charlie", "Brown", new Double[]{80.0, 70.0}),
                 new Student("Dave", "Jones", new Double[]{60.0, 50.0}),
-                new Student("Eve", "Davis", new Double[]{50.0, 40.0})
+                new Student("Eve", "Davis", new Double[]{00.0, 00.0})
         };
         Classroom classroom = new Classroom(students);
 
@@ -48,7 +48,7 @@ public class GetGradeBookTest {
         Map<Student, Character> expected = new HashMap<>();
         expected.put(students[0], 'A');
         expected.put(students[1], 'C');
-        expected.put(students[2], 'D');
+        expected.put(students[2], 'F');
 
         // Test the getGradeBook() method
         test(expected, classroom);

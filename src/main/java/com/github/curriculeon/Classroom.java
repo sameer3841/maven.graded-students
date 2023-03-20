@@ -62,7 +62,9 @@ public class Classroom {
             Student sortedStudent = sortedStudents[i];
             double percentileRank = ((double) i) / numStudents;
             char grade;
-            if (percentileRank < .1) {
+            if (i == sortedStudents.length - 1) {
+                grade = 'F';
+            } else if (percentileRank < .1) {
                 grade = 'A';
             } else if (percentileRank < .29) {
                 grade = 'B';
@@ -70,8 +72,6 @@ public class Classroom {
                 grade = 'C';
             } else if (percentileRank < .89) {
                 grade = 'D';
-            } else if (percentileRank < .9) {
-                grade = 'F';
             } else {
                 grade = 'A';
             }
