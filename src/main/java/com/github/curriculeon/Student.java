@@ -19,8 +19,6 @@ public class Student implements Comparable<Student> {
     }
 
     public Student() {
-        setFirstName(null);
-        setLastName(null);
         testScores = new ArrayList<>(Collections.emptyList());
     }
 
@@ -71,10 +69,12 @@ public class Student implements Comparable<Student> {
      */
     @Override
     public int compareTo(Student studentToCompareAgainst) {
-        int ans = this.getAverageExamScore().compareTo(studentToCompareAgainst.getAverageExamScore());
-        if(ans == 0)
-            ans = this.getLastName().compareTo(studentToCompareAgainst.getLastName());
-        return ans;
+        Double averageScore = getAverageExamScore();
+        Double averageScoreToCompare = studentToCompareAgainst.getAverageExamScore();
+        int compare = averageScoreToCompare.compareTo(averageScore);
+        if(compare == 0)
+            return this.getLastName().compareTo(studentToCompareAgainst.getLastName());
+        return compare;
     }
 }
 
