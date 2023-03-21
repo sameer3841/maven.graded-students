@@ -22,7 +22,12 @@ public class Classroom {
 
     public Double getAverageExamScore() {
         double ans = 0;
-        return null;
+        int tracker = 0;
+        for(Student i : studentList){
+            ans += i.getSumOfExamScore();
+            tracker += i.getExamScores().length;
+        }
+        return ans / tracker;
     }
 
     public Boolean addStudent(Student students) {

@@ -82,6 +82,12 @@ public class Student implements Comparable<Student> {
         return ans / testScores.size();
     }
 
+    public Double getSumOfExamScore(){
+        double ans = 0;
+        for(double i : testScores) ans += i;
+        return ans;
+    }
+
     @Override
     public String toString() {
         return null;
@@ -109,8 +115,7 @@ public class Student implements Comparable<Student> {
      */
     @Override
     public int compareTo(Student studentToCompareAgainst) {
-        Double averageScore = getAverageExamScore();
-        Double averageScoreToCompare = studentToCompareAgainst.getAverageExamScore();
+        Double averageScore = getAverageExamScore(), averageScoreToCompare = studentToCompareAgainst.getAverageExamScore();
         int compare = averageScoreToCompare.compareTo(averageScore);
         if(compare == 0)
             return this.getLastName().compareTo(studentToCompareAgainst.getLastName());
