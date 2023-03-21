@@ -21,6 +21,7 @@ public class Classroom {
 
 
     public Double getAverageExamScore() {
+        double ans = 0;
         return null;
     }
 
@@ -39,7 +40,11 @@ public class Classroom {
     }
 
     public Map<Student, Character> getGradeBook() {
-        return null;
+        Map<Student, Character> gradeBook = new HashMap<>();
+        for (Student student : studentList)
+            gradeBook.put(student,
+                    student.getGrade(student.getAverageExamScore()));
+        return gradeBook;
     }
 
 }

@@ -22,36 +22,60 @@ public class Student implements Comparable<Student> {
         testScores = new ArrayList<>(Collections.emptyList());
     }
 
+    /**
+     * @return
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     * @param firstName
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    /**
+     * @return
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     * @param lastName
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
+    /**
+     * @return
+     */
     public Double[] getExamScores() {
         return testScores.toArray(new Double[0]);
     }
 
+    /**
+     * @param examScore
+     */
     public void addExamScore(double examScore) {
         testScores.add(examScore);
     }
 
 
+    /**
+     * @param examNum
+     * @param updateScore
+     */
     public void setExamScore(int examNum, double updateScore) {
         testScores.set(examNum,updateScore);
     }
 
-
+    /**
+     * @return
+     */
     public Double getAverageExamScore() {
         double ans = 0;
         for(double i : testScores) ans += i;
@@ -61,6 +85,22 @@ public class Student implements Comparable<Student> {
     @Override
     public String toString() {
         return null;
+    }
+
+    public Character getGrade(Double grade) {
+        char letterGrade;
+        if ( grade >= 84 ) {
+            letterGrade = 'A';
+        } else if ( grade < 84 && grade > 71) {
+            letterGrade = 'B';
+        } else if ( grade < 70 && grade > 56) {
+            letterGrade = 'C';
+        } else if ( grade <= 55 && grade > 46) {
+            letterGrade = 'D';
+        } else {
+            letterGrade = 'F';
+        }
+        return letterGrade;
     }
 
     /**
