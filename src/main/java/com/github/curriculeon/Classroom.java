@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Classroom {
 
-    private List<Student> studentList;
+    private final List<Student> studentList;
 
     public Classroom(Student[] students) {
         this.studentList = new ArrayList<>(Arrays.asList(students));
@@ -18,7 +18,6 @@ public class Classroom {
     public Student[] getStudents() {
         return studentList.toArray(new Student[0]);
     }
-
 
     public Double getAverageExamScore() {
         double ans = 0;
@@ -41,16 +40,15 @@ public class Classroom {
     }
 
     public Student[] getStudentsByScore() {
-        return null;
+        return studentList.stream()
+                .sorted()
+                .toArray(Student[]::new);
     }
 
     public Map<Student, Character> getGradeBook() {
         Map<Student, Character> gradeBook = new HashMap<>();
-        for (Student student : studentList)
-            gradeBook.put(student,
-                    student.getGrade(student.getAverageExamScore()));
+        for (Student student : studentList) gradeBook.put(student, student.getGrade(student.getAverageExamScore()));
         return gradeBook;
     }
-
 }
 
